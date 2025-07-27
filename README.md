@@ -15,11 +15,11 @@ Uma API REST desenvolvida em C# .NET 9 para gerenciar cupons de desconto com reg
 O projeto segue os princípios de **Clean Architecture** e **Domain-Driven Design**:
 
 ```
-├── CouponSystem.Api          # Camada de apresentação (Minimal APIs)
-├── CouponSystem.Core         # Camada de domínio (Entidades, Serviços, Interfaces)
-├── CouponSystem.Infrastructure # Camada de infraestrutura (EF Core, Repositórios)
-├── CouponSystem.UnitTests      # Testes unitários
-└── CouponSystem.IntegrationTests # Testes de integração
+├── Landia.Api          # Camada de apresentação (Minimal APIs)
+├── Landia.Core         # Camada de domínio (Entidades, Serviços, Interfaces)
+├── Landia.Infrastructure # Camada de infraestrutura (EF Core, Repositórios)
+├── Landia.UnitTests      # Testes unitários
+└── Landia.IntegrationTests # Testes de integração
 ```
 
 ## 🛠️ Tecnologias
@@ -42,7 +42,7 @@ O projeto segue os princípios de **Clean Architecture** e **Domain-Driven Desig
 1. **Clone o repositório**
 ```bash
 git clone <repository-url>
-cd CouponSystem
+cd Landia
 ```
 
 2. **Restaure as dependências**
@@ -52,24 +52,24 @@ dotnet restore
 
 3. **Execute a aplicação**
 ```bash
-dotnet run --project src/CouponSystem.Api
+dotnet run --project src/Landia.Api
 ```
 
 4. **Acesse o Swagger**
 ```
-https://localhost:5001
+https://localhost:5285
 ```
 
 ## 🧪 Executar testes
 
 **Testes unitários:**
 ```bash
-dotnet test tests/CouponSystem.UnitTests
+dotnet test tests/Landia.UnitTests
 ```
 
 **Testes de integração:**
 ```bash
-dotnet test tests/CouponSystem.IntegrationTests
+dotnet test tests/Landia.IntegrationTests
 ```
 
 **Todos os testes:**
@@ -121,18 +121,18 @@ POST /api/coupons/apply
 
 ```
 src/
-├── CouponSystem.Api/
+├── Landia.Api/
 │   ├── Endpoints/           # Definição dos endpoints REST
 │   ├── Middleware/          # Middlewares customizados
 │   └── Program.cs           # Configuração da aplicação
-├── CouponSystem.Core/
-│   ├── Entities/            # Entidades do domínio
+├── Landia.Core/
+│   ├── Entities/           # Entidades do domínio
 │   ├── Enums/              # Enumerações
 │   ├── Interfaces/         # Contratos e abstrações
 │   ├── Services/           # Lógica de negócio
 │   ├── Validators/         # Validadores de regras
 │   └── DTOs/               # Objetos de transferência
-└── CouponSystem.Infrastructure/
+└── Landia.Infrastructure/
     ├── Data/               # Contexto do EF Core
     └── Repositories/       # Implementação dos repositórios
 ```
