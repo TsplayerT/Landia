@@ -15,11 +15,11 @@ Uma API REST desenvolvida em C# .NET 9 para gerenciar cupons de desconto com reg
 O projeto segue os princípios de **Clean Architecture** e **Domain-Driven Design**:
 
 ```
-├── Landia.Api          # Camada de apresentação (Minimal APIs)
-├── Landia.Core         # Camada de domínio (Entidades, Serviços, Interfaces)
-├── Landia.Infrastructure # Camada de infraestrutura (EF Core, Repositórios)
-├── Landia.UnitTests      # Testes unitários
-└── Landia.IntegrationTests # Testes de integração
+Landia.Api              # Camada de apresentação (Minimal APIs)
+Landia.Core             # Camada de domínio (Entidades, Serviços, Interfaces)
+Landia.Infrastructure   # Camada de infraestrutura (EF Core, Repositórios)
+Landia.UnitTests        # Testes unitários
+Landia.IntegrationTests # Testes de integração
 ```
 
 ## 🛠️ Tecnologias
@@ -125,6 +125,7 @@ src/
 │   ├── Endpoints/           # Definição dos endpoints REST
 │   ├── Middleware/          # Middlewares customizados
 │   └── Program.cs           # Configuração da aplicação
+│
 ├── Landia.Core/
 │   ├── Entities/           # Entidades do domínio
 │   ├── Enums/              # Enumerações
@@ -132,7 +133,15 @@ src/
 │   ├── Services/           # Lógica de negócio
 │   ├── Validators/         # Validadores de regras
 │   └── DTOs/               # Objetos de transferência
+│
 └── Landia.Infrastructure/
-    ├── Data/               # Contexto do EF Core
-    └── Repositories/       # Implementação dos repositórios
+       ├── Data/               # Contexto do EF Core
+       └── Repositories/       # Implementação dos repositórios
+
+tests/
+├── Landia.IntegrationTests   # Testes de integração
+│   
+└── Landia.UnitTests
+       ├── Services/         # Testes dos serviços
+       └── Validators/       # Testes de validação
 ```
