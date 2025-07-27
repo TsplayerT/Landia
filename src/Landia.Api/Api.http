@@ -1,0 +1,41 @@
+
+@Api_Version = v1
+@Api_HostAddress = http://localhost:5285
+
+### Verificar a saúde da API
+GET {{Api_HostAddress}}/{{Api_Version}}/health
+Accept: application/json
+
+### Buscar todos os cupons
+GET {{Api_HostAddress}}/{{Api_Version}}/coupons
+Accept: application/json
+
+### Criar novo cupom
+POST {{Api_HostAddress}}/{{Api_Version}}/coupons
+Content-Type: application/json
+
+{
+  "code": "PROMO10",
+  "discountType": 1,
+  "discountValue": 10.0,
+  "minimumOrderValue": 50.0,
+  "expirationDate": "2025-12-31T23:59:59Z",
+  "isUniquePerCustomer": false
+}
+
+### Buscar cupom por código
+GET {{Api_HostAddress}}/{{Api_Version}}/coupons/PROMO10
+Accept: application/json
+
+### Aplicar cupom no checkout
+POST {{Api_HostAddress}}/{{Api_Version}}/coupons/apply
+Content-Type: application/json
+
+{
+  "couponCode": "PROMO10",
+  "customerId": "12345",
+  "orderValue": 100.0
+}
+
+### Desativar cupom
+PATCH {{Api_HostAddress}}/{{Api_Version}}/coupons/PROMO10/deactivate
