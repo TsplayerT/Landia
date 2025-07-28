@@ -3,15 +3,15 @@
 @Api_HostAddress = http://localhost:5285
 
 ### Verificar a saúde da API
-GET {{Api_HostAddress}}/{{Api_Version}}/health
+GET {{Api_HostAddress}}/api/{{Api_Version}}/health
 Accept: application/json
 
 ### Buscar todos os cupons
-GET {{Api_HostAddress}}/{{Api_Version}}/coupons
+GET {{Api_HostAddress}}/api/{{Api_Version}}/coupons
 Accept: application/json
 
 ### Criar novo cupom
-POST {{Api_HostAddress}}/{{Api_Version}}/coupons
+POST {{Api_HostAddress}}/api/{{Api_Version}}/coupons
 Content-Type: application/json
 
 {
@@ -24,11 +24,11 @@ Content-Type: application/json
 }
 
 ### Buscar cupom por código
-GET {{Api_HostAddress}}/{{Api_Version}}/coupons/PROMO10
+GET {{Api_HostAddress}}/api/{{Api_Version}}/coupons/PROMO10
 Accept: application/json
 
 ### Aplicar cupom no checkout
-POST {{Api_HostAddress}}/{{Api_Version}}/coupons/apply
+POST {{Api_HostAddress}}/api/{{Api_Version}}/coupons/apply
 Content-Type: application/json
 
 {
@@ -38,4 +38,4 @@ Content-Type: application/json
 }
 
 ### Desativar cupom
-PATCH {{Api_HostAddress}}/{{Api_Version}}/coupons/PROMO10/deactivate
+PATCH {{Api_HostAddress}}/api/{{Api_Version}}/coupons/PROMO10/deactivate
