@@ -21,7 +21,7 @@ public class CouponRepository : ICouponRepository
     {
         Logger.LogDebug("Buscando cupom por código: {CouponCode}", code);
 
-        return await Context.Coupons.Include(c => c.Usages).FirstOrDefaultAsync(c => c.Code == code.ToUpperInvariant(), cancellationToken);
+        return await Context.Coupons.Include(c => c.Usages).FirstOrDefaultAsync(c => c.Code.Equals(code, StringComparison.InvariantCultureIgnoreCase), cancellationToken);
     }
 
     public async Task<Coupon?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
@@ -62,6 +62,6 @@ public class CouponRepository : ICouponRepository
     {
         Logger.LogDebug("Verificando existência do cupom: {CouponCode}", code);
 
-        return await Context.Coupons.AnyAsync(c => c.Code == code.ToUpperInvariant(), cancellationToken);
+        return await Context.Coupons.AnyAsync(c => c.Code.Equals(code, StringComparison.InvariantCultureIgnoreCase), cancellationToken);
     }
 }
