@@ -135,13 +135,13 @@ src/
 │   └── DTOs/               # Objetos de transferência
 │
 └── Landia.Infrastructure/
-       ├── Data/               # Contexto do EF Core
-       └── Repositories/       # Implementação dos repositórios
+       ├── Data/            # Contexto do EF Core
+       └── Repositories/    # Implementação dos repositórios
 
 tests/
-├── Landia.IntegrationTests   # Testes de integração
+├── Landia.IntegrationTests # Testes de integração
 │   
 └── Landia.UnitTests
-       ├── Services/         # Testes dos serviços
-       └── Validators/       # Testes de validação
+       ├── Services/        # Testes dos serviços
+       └── Validators/      # Testes de validação
 ```
