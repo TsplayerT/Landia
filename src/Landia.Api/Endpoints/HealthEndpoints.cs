@@ -10,7 +10,7 @@ public class HealthEndpoints : IEndpoint
             .WithTags("Health")
             .WithOpenApi();
 
-        // GET /api/health
+        // GET /api/v1/health
         routeGroupBuilder.MapGet("/", HealthCheck)
             .WithName(nameof(HealthCheck))
             .WithSummary("Verificar a saúde da API")

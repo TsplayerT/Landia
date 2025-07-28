@@ -13,20 +13,20 @@ public class CouponEndpoints : IEndpoint
             .WithTags("Coupons")
             .WithOpenApi();
 
-        // GET /api/coupons
+        // GET /api/v1/coupons
         routeGroupBuilder.MapGet("/", GetAllCoupons)
             .WithName("GetAllCoupons")
             .WithSummary("Buscar todos os cupons")
             .Produces<IEnumerable<CouponResponse>>();
 
-        // GET /api/coupons/{code}
+        // GET /api/v1/coupons/{code}
         routeGroupBuilder.MapGet("/{code}", GetCouponByCode)
             .WithName("GetCouponByCode")
             .WithSummary("Buscar cupom por código")
             .Produces<CouponResponse>()
             .Produces(404);
 
-        // POST /api/coupons
+        // POST /api/v1/coupons
         routeGroupBuilder.MapPost("/", CreateCoupon)
             .WithName("CreateCoupon")
             .WithSummary("Criar novo cupom")
@@ -34,14 +34,14 @@ public class CouponEndpoints : IEndpoint
             .Produces<ValidationProblemDetails>(400)
             .Produces<ProblemDetails>(409);
 
-        // POST /api/coupons/apply
+        // POST /api/v1/coupons/apply
         routeGroupBuilder.MapPost("/apply", ApplyCoupon)
             .WithName("ApplyCoupon")
             .WithSummary("Aplicar cupom no checkout")
             .Produces<CouponApplicationResult>()
             .Produces<ValidationProblemDetails>(400);
 
-        // PATCH /api/coupons/{code}/deactivate
+        // PATCH /api/v1/coupons/{code}/deactivate
         routeGroupBuilder.MapPatch("/{code}/deactivate", DeactivateCoupon)
             .WithName("DeactivateCoupon")
             .WithSummary("Desativar cupom")
@@ -77,7 +77,7 @@ public class CouponEndpoints : IEndpoint
         {
             var coupon = await couponService.CreateCouponAsync(request, cancellationToken);
 
-            return Results.Created($"/api/coupons/{coupon.Code}", coupon);
+            return Results.Created($"/api/v1/coupons/{coupon.Code}", coupon);
         }
         catch (InvalidOperationException ex)
         {

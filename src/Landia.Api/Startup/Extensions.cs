@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using Landia.Api.Interfaces;
-using Microsoft.AspNetCore.SignalR;
 
 namespace Landia.Api.Startup;
 
@@ -29,7 +28,7 @@ public static class Extensions
     {
         var listEndpointTypes = Assembly.GetTypes().Where(x => typeof(IEndpoint).IsAssignableFrom(x) && x.IsClass && !x.IsAbstract).ToList();
         var endpointScope = app.ServiceProvider.CreateScope();
-        var endpointRouteBuilder = app.MapGroup("/v1");
+        var endpointRouteBuilder = app.MapGroup("/api/v1");
 
         foreach (var endpointType in listEndpointTypes)
         {
