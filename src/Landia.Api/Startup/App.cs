@@ -1,5 +1,4 @@
-﻿using Landia.Api.Endpoints;
-using Landia.Api.Middleware;
+﻿using Landia.Api.Middleware;
 using Landia.Infrastructure.Data;
 
 namespace Landia.Api.Startup;
